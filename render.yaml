@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: deadwood-public-rooms
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.mjs
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
